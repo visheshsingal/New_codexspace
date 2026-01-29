@@ -1,4 +1,3 @@
-import { VideoBackground } from "@/components/VideoBackground";
 import { MobileMenu } from "@/sections/MobileMenu";
 import { Navbar } from "@/sections/Navbar";
 import { Hero } from "@/sections/Hero";
@@ -20,7 +19,7 @@ export const App = () => {
     document.body.style.padding = '0';
     document.documentElement.style.margin = '0';
     document.documentElement.style.padding = '0';
-    
+
     return () => {
       document.documentElement.style.scrollBehavior = 'auto';
     };
@@ -29,25 +28,25 @@ export const App = () => {
   return (
     <div className="min-h-screen bg-stone-50 font-switzer">
       <CustomCursor />
-      
+
       {/* Navigation */}
       <MobileMenu />
       <Navbar />
-      
+
       {/* Main Content */}
       <main className="relative">
         <Hero />
-        
+
         {/* Content Sections */}
         <div className="relative z-10">
-          <WhatWeDo />
-          <ProjectsCarousel />
-          <VideoGrid />
+          <section id="what-we-do"><WhatWeDo /></section>
+          <section id="projects"><ProjectsCarousel /></section>
+          <section id="video-grid"><VideoGrid /></section>
           <Testimonials />
-          <NewsSection />
-          <ContactForm />
+          <section id="news"><NewsSection /></section>
+          <section id="contact"><ContactForm /></section>
         </div>
-        
+
         <Footer />
       </main>
     </div>

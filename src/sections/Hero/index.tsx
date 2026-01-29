@@ -151,10 +151,12 @@ export const Hero = () => {
             className="flex flex-wrap gap-4"
           >
             {/* Primary CTA - White */}
-            <motion.button
+            {/* Primary CTA - White */}
+            <motion.a
+              href="#contact"
               whileHover={{ scale: 1.03, backgroundColor: '#f5f5f5' }}
               whileTap={{ scale: 0.97 }}
-              className="group bg-white text-black px-8 py-4 rounded-full font-semibold text-base md:text-lg transition-all duration-300 shadow-lg hover:shadow-xl"
+              className="group bg-white text-black px-8 py-4 rounded-full font-semibold text-base md:text-lg transition-all duration-300 shadow-lg hover:shadow-xl inline-flex items-center"
             >
               <span className="flex items-center gap-3">
                 Get Started Today
@@ -167,26 +169,29 @@ export const Hero = () => {
                   </svg>
                 </motion.span>
               </span>
-            </motion.button>
+            </motion.a>
 
             {/* Secondary CTA - Outline */}
-            <motion.button
+            <motion.a
+              href="#projects"
               whileHover={{ scale: 1.03, backgroundColor: 'rgba(255, 255, 255, 0.1)' }}
               whileTap={{ scale: 0.97 }}
-              className="border border-white/40 text-white px-8 py-4 rounded-full font-medium text-base md:text-lg hover:border-white/70 transition-all duration-300 backdrop-blur-sm"
+              className="border border-white/40 text-white px-8 py-4 rounded-full font-medium text-base md:text-lg hover:border-white/70 transition-all duration-300 backdrop-blur-sm inline-flex items-center"
             >
               View Our Work
-            </motion.button>
+            </motion.a>
           </motion.div>
         </motion.div>
       </div>
 
       {/* Scroll Indicator */}
-      <motion.div
+      <motion.a
+        href="#what-we-do"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 2.5 }}
-        className="absolute bottom-8 right-8 z-20"
+        className="absolute bottom-8 right-8 z-20 cursor-pointer"
+        whileHover={{ scale: 1.1 }}
       >
         <motion.div
           animate={{ y: [0, 10, 0] }}
@@ -200,7 +205,7 @@ export const Hero = () => {
           />
         </motion.div>
         <p className="text-white/40 text-xs mt-2 text-center tracking-widest uppercase">Scroll</p>
-      </motion.div>
+      </motion.a>
 
       {/* Decorative Elements - Right Side */}
       <motion.div
