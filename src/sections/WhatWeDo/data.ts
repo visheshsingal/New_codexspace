@@ -4,35 +4,35 @@ export const services = [
         title: "Web Development",
         description: "Custom high-performance websites and web applications built with modern technologies.",
         icon: "code",
-        color: "bg-blue-100 text-blue-900"
+        color: "bg-[#E0F7FA] text-cyan-900" // Light Cyan
     },
     {
         id: 2,
         title: "Digital Marketing",
         description: "Strategic campaigns that drive visibility, engagement, and measurable growth.",
         icon: "trending-up",
-        color: "bg-emerald-100 text-emerald-900"
+        color: "bg-[#F3E5F5] text-purple-900" // Light Purple
     },
     {
         id: 3,
         title: "AI Solutions",
         description: "Leveraging artificial intelligence to automate processes and gain data-driven insights.",
         icon: "cpu",
-        color: "bg-purple-100 text-purple-900"
+        color: "bg-[#E8F5E9] text-green-900" // Light Green
     },
     {
         id: 4,
         title: "Branding & Design",
         description: "Crafting unique visual identities and intuitive user experiences that resonate.",
         icon: "pen-tool",
-        color: "bg-orange-100 text-orange-900"
+        color: "bg-[#FFF3E0] text-orange-900" // Light Orange
     },
     {
         id: 5,
         title: "Consulting",
         description: "Expert guidance on digital strategy, financial planning, and business transformation.",
         icon: "briefcase",
-        color: "bg-stone-200 text-stone-800"
+        color: "bg-[#E1F5FE] text-sky-900" // Light Sky Blue
     }
 ];
 

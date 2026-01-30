@@ -16,7 +16,7 @@ export const Testimonials = () => {
   };
 
   return (
-    <section className="py-20 md:py-32 bg-stone-50 overflow-hidden" id="testimonials">
+    <section className="pt-20 md:pt-32 pb-8 bg-stone-50 overflow-hidden" id="testimonials">
       <div className="max-w-7xl mx-auto px-4 md:px-8">
 
         {/* Header with Navigation */}

@@ -17,45 +17,43 @@ export const FooterNav = () => {
   ];
 
   return (
-    <div className="relative text-[15.1297px] box-border caret-transparent flex flex-col col-end-3 col-start-1 row-end-3 row-start-2 tracking-[-0.302594px] leading-[21.1816px] z-[2] md:text-[15.2873px] md:col-end-4 md:col-start-3 md:row-end-2 md:row-start-1 md:tracking-[-0.305746px] md:leading-[21.4022px]">
-      <div className="grid grid-cols-2 gap-8 p-4 md:p-8 border-t border-neutral-600 md:border-t-0">
-        {/* Services Column */}
-        <div className="flex flex-col gap-4">
-          <h3 className="text-sm uppercase tracking-wider text-neutral-400 font-medium">
-            Services
-          </h3>
-          <ul className="flex flex-col gap-3">
-            {servicesLinks.map((link, index) => (
-              <li key={index}>
-                <a
-                  href={link.href}
-                  className="text-stone-50 text-sm hover:text-neutral-400 transition-colors"
-                >
-                  {link.name}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
+    <div className="flex flex-wrap gap-10 md:gap-20">
+      {/* Services Column */}
+      <div className="flex flex-col gap-4">
+        <h3 className="text-sm font-semibold uppercase tracking-wider text-white">
+          Services
+        </h3>
+        <ul className="flex flex-col gap-2">
+          {servicesLinks.map((link, index) => (
+            <li key={index}>
+              <a
+                href={link.href}
+                className="text-neutral-400 text-sm hover:text-white transition-colors duration-200"
+              >
+                {link.name}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
 
-        {/* Company Column */}
-        <div className="flex flex-col gap-4">
-          <h3 className="text-sm uppercase tracking-wider text-neutral-400 font-medium">
-            Company
-          </h3>
-          <ul className="flex flex-col gap-3">
-            {companyLinks.map((link, index) => (
-              <li key={index}>
-                <a
-                  href={link.href}
-                  className="text-stone-50 text-sm hover:text-neutral-400 transition-colors"
-                >
-                  {link.name}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
+      {/* Company Column */}
+      <div className="flex flex-col gap-4">
+        <h3 className="text-sm font-semibold uppercase tracking-wider text-white">
+          Company
+        </h3>
+        <ul className="flex flex-col gap-2">
+          {companyLinks.map((link, index) => (
+            <li key={index}>
+              <a
+                href={link.href}
+                className="text-neutral-400 text-sm hover:text-white transition-colors duration-200"
+              >
+                {link.name}
+              </a>
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   );

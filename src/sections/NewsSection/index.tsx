@@ -8,32 +8,38 @@ const services = [
   {
     title: "Web & App Development",
     description: "Custom websites and mobile apps that drive conversions and user engagement.",
-    icon: "01"
+    icon: "01",
+    color: "bg-[#E0F7FA] text-cyan-900" // Light Cyan
   },
   {
     title: "SEO & Content Marketing",
     description: "Data-driven SEO strategies and compelling content that ranks and converts.",
-    icon: "02"
+    icon: "02",
+    color: "bg-[#F3E5F5] text-purple-900" // Light Purple
   },
   {
     title: "Social Media Marketing",
     description: "Strategic SMM campaigns that build brand awareness and drive engagement.",
-    icon: "03"
+    icon: "03",
+    color: "bg-[#FFF3E0] text-orange-900" // Light Orange
   },
   {
     title: "AI Solutions",
     description: "Cutting-edge AI integration for automation and intelligent decision-making.",
-    icon: "04"
+    icon: "04",
+    color: "bg-[#E8F5E9] text-green-900" // Light Green
   },
   {
     title: "Podcast Production",
     description: "Professional podcast creation and distribution to amplify your brand voice.",
-    icon: "05"
+    icon: "05",
+    color: "bg-[#FFEBEE] text-red-900" // Light Red
   },
   {
     title: "Financial Consulting",
     description: "Strategic financial planning and investment guidance for business growth.",
-    icon: "06"
+    icon: "06",
+    color: "bg-[#E1F5FE] text-sky-900" // Light Sky Blue
   }
 ];
 
@@ -50,17 +56,17 @@ export const NewsSection = () => {
     cards.forEach((card, index) => {
       gsap.fromTo(card,
         {
-          y: 60,
+          y: 50,
           opacity: 0,
         },
         {
           y: 0,
           opacity: 1,
-          duration: 0.8,
+          duration: 1,
           ease: 'power3.out',
           scrollTrigger: {
             trigger: card,
-            start: 'top bottom-=100',
+            start: 'top bottom-=80',
             toggleActions: 'play none none reverse',
           },
           delay: index * 0.1,
@@ -76,72 +82,63 @@ export const NewsSection = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative text-black bg-stone-50 overflow-hidden py-20 md:py-32"
+      className="relative text-black bg-stone-50 overflow-hidden pt-12 pb-24 md:pb-32"
+      id="services-section"
     >
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-[0.02]">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `radial-gradient(circle at 1px 1px, black 1px, transparent 0)`,
-          backgroundSize: '40px 40px'
-        }} />
-      </div>
-
       <div className="relative z-10 px-4 md:px-8 lg:px-16">
-        <div className="max-w-[1400px] mx-auto">
+        <div className="max-w-7xl mx-auto">
 
-          {/* Header Section */}
-          <div className="text-center mb-16 md:mb-24">
-            <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 border border-black/20 rounded-full">
-              <div className="w-2 h-2 bg-black rounded-full" />
-              <span className="text-sm uppercase tracking-wider font-medium">Our Services</span>
+          {/* Clean Professional Header */}
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-20">
+            <div className="max-w-2xl">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-1.5 h-1.5 bg-black rounded-full" />
+                <span className="text-xs uppercase tracking-[0.2em] font-bold text-black/60">Services</span>
+              </div>
+              <h2 className="text-4xl md:text-6xl font-normal tracking-tight text-neutral-900 leading-tight">
+                Our suite of <span className="font-semibold">digital services</span> to help your business grow.
+              </h2>
             </div>
-
-            <h2 className="text-4xl md:text-6xl lg:text-7xl font-light tracking-tight mb-6">
-              Comprehensive
-              <span className="block font-medium">
-                Digital Solutions
-              </span>
-            </h2>
-
-            <p className="text-lg md:text-xl text-neutral-600 max-w-2xl mx-auto leading-relaxed">
-              From web development to AI integration, we provide end-to-end digital solutions that drive growth and deliver measurable results.
-            </p>
+            <div className="md:pb-2">
+              <p className="text-lg text-neutral-500 max-w-sm leading-relaxed">
+                We combine strategy, design, and technology to deliver results that matter.
+              </p>
+            </div>
           </div>
 
-          {/* Services Grid */}
+          {/* Grid Layout */}
           <div
             ref={cardsRef}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
           >
             {services.map((service, index) => (
               <div
                 key={index}
-                className="service-card group relative bg-white rounded-2xl p-8 md:p-10 border border-neutral-200 hover:border-black transition-all duration-500 hover:shadow-2xl hover:shadow-black/10 hover:-translate-y-2"
+                className={`service-card group relative rounded-3xl p-10 border border-transparent hover:border-black/5 hover:shadow-lg transition-all duration-500 ${service.color}`}
               >
-                {/* Icon Number */}
-                <div className="relative mb-6">
-                  <div className="w-16 h-16 rounded-2xl bg-black text-white flex items-center justify-center text-2xl font-light group-hover:scale-110 transition-transform duration-500">
+                {/* Number & Title */}
+                <div className="mb-8">
+                  <div className="text-sm font-bold opacity-40 mb-4 group-hover:opacity-100 transition-opacity duration-500">
                     {service.icon}
                   </div>
-                </div>
-
-                {/* Content */}
-                <div className="relative">
-                  <h3 className="text-xl md:text-2xl font-medium mb-4 group-hover:text-black transition-colors">
+                  <h3 className="text-2xl font-semibold tracking-tight">
                     {service.title}
                   </h3>
-                  <p className="text-neutral-600 leading-relaxed mb-6">
-                    {service.description}
-                  </p>
+                </div>
 
-                  {/* Learn More Link */}
+                <p className="opacity-70 leading-relaxed mb-10 group-hover:opacity-100 transition-opacity duration-500">
+                  {service.description}
+                </p>
+
+                {/* Refined Link */}
+                <div className="mt-auto">
                   <a
                     href="#"
-                    className="inline-flex items-center gap-2 text-sm font-medium text-black group-hover:gap-4 transition-all duration-300"
+                    className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider group-hover:gap-4 transition-all duration-300"
                   >
-                    Learn More
+                    <span>Read More</span>
                     <svg
-                      className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300"
+                      className="w-4 h-4 transform group-hover:translate-x-1 transition-transform"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -150,36 +147,26 @@ export const NewsSection = () => {
                     </svg>
                   </a>
                 </div>
-
-                {/* Corner Accent */}
-                <div className="absolute top-0 right-0 w-20 h-20 bg-black opacity-[0.03] rounded-bl-[100px] rounded-tr-2xl group-hover:opacity-[0.08] transition-opacity duration-500" />
               </div>
             ))}
           </div>
 
-          {/* Bottom CTA */}
-          <div className="text-center mt-16 md:mt-24">
-            <div className="inline-flex items-center gap-6 flex-wrap justify-center">
+          {/* Simple Professional CTA */}
+          <div className="mt-20 flex flex-col items-center text-center">
+            <div className="h-px w-20 bg-black/10 mb-12" />
+            <h3 className="text-2xl md:text-3xl font-medium mb-8">Ready to start your next project?</h3>
+            <div className="flex gap-4">
               <a
-                href="#"
-                className="inline-flex items-center gap-3 px-8 py-4 bg-black text-white rounded-full hover:bg-neutral-800 transition-colors duration-300 group"
+                href="#contact"
+                className="px-10 py-4 bg-black text-white rounded-full hover:bg-neutral-800 transition-all duration-300 shadow-lg shadow-black/5"
               >
-                <span className="font-medium">View All Services</span>
-                <svg
-                  className="w-5 h-5 transform group-hover:translate-x-1 transition-transform"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
+                Get in touch
               </a>
-
               <a
                 href="#"
-                className="inline-flex items-center gap-3 px-8 py-4 bg-transparent text-black border-2 border-black rounded-full hover:bg-black hover:text-white transition-all duration-300"
+                className="px-10 py-4 border border-black/10 rounded-full hover:border-black transition-all duration-300"
               >
-                <span className="font-medium">Get a Quote</span>
+                Learn about us
               </a>
             </div>
           </div>
