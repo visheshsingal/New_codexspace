@@ -1,17 +1,18 @@
-import { MobileMenu } from "@/sections/MobileMenu";
-import { Navbar } from "@/sections/Navbar";
-import { Hero } from "@/sections/Hero";
-import { WhatWeDo } from "@/sections/WhatWeDo";
-import { ProjectsCarousel } from "@/sections/ProjectsCarousel";
-import { VideoGrid } from "@/sections/VideoGrid";
-import { Testimonials } from "@/sections/Testimonials";
-import { NewsSection } from "@/sections/NewsSection";
-import { ContactForm } from "@/sections/ContactForm";
-import { Footer } from "@/sections/Footer";
-import { CustomCursor } from "@/components/CustomCursor";
-import { useEffect } from 'react';
+import { MobileMenu } from "./sections/MobileMenu";
+import { Navbar } from "./sections/Navbar";
+import { Hero } from "./sections/Hero";
+import { WhatWeDo } from "./sections/WhatWeDo";
+import { ProjectsCarousel } from "./sections/ProjectsCarousel";
+import { VideoGrid } from "./sections/VideoGrid";
+import { Testimonials } from "./sections/Testimonials";
+import { NewsSection } from "./sections/NewsSection";
+import { ContactForm } from "./sections/ContactForm";
+import { Footer } from "./sections/Footer";
+import { useEffect, useState } from 'react';
 
 export const App = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   useEffect(() => {
     // Reset any default margins/padding and improve scroll behavior
     document.documentElement.style.scrollBehavior = 'smooth';
@@ -27,11 +28,10 @@ export const App = () => {
 
   return (
     <div className="min-h-screen bg-stone-50 font-switzer">
-      <CustomCursor />
+      {/* <CustomCursor /> */}
 
       {/* Navigation */}
-      <MobileMenu />
-      <Navbar />
+      <Navbar onMenuClick={() => setIsMenuOpen(true)} />
 
       {/* Main Content */}
       <main className="relative">
@@ -42,13 +42,16 @@ export const App = () => {
           <section id="what-we-do"><WhatWeDo /></section>
           <section id="projects"><ProjectsCarousel /></section>
           <section id="video-grid"><VideoGrid /></section>
-          <Testimonials />
+          <section id="testimonials"><Testimonials /></section>
           <section id="news"><NewsSection /></section>
           <section id="contact"><ContactForm /></section>
         </div>
 
         <Footer />
       </main>
+
+      {/* Mobile Menu at the very bottom for maximum z-index stability */}
+      <MobileMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
     </div>
   );
 };

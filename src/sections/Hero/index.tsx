@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
 import { useRef } from 'react';
-import TextCursorProximity from '@/components/ui/text-cursor-proximity';
 
 export const Hero = () => {
   const heroContainerRef = useRef<HTMLDivElement>(null);
@@ -52,52 +51,14 @@ export const Hero = () => {
             className="mb-6 md:mb-10 relative"
           >
             {/* Codex text with proximity effect */}
-            <div className="relative z-10 leading-none">
-              <TextCursorProximity
-                label="Codex"
-                className="hero-company-name block text-[18vw] md:text-[14vw] lg:text-[12vw] xl:text-[10vw] 2xl:text-[9vw] font-black will-change-transform cursor-default"
-                styles={{
-                  transform: {
-                    from: "scale(1)",
-                    to: "scale(1.12)",
-                  },
-                  color: {
-                    from: "#ffffff",
-                    to: "#e5e5e5"
-                  },
-                  textShadow: {
-                    from: "0 4px 20px rgba(0,0,0,0.4), 0 8px 40px rgba(0,0,0,0.3)",
-                    to: "0 0 60px rgba(255,255,255,0.4), 0 0 100px rgba(255,255,255,0.2), 0 4px 20px rgba(0,0,0,0.4)"
-                  }
-                }}
-                falloff="gaussian"
-                radius={120}
-                containerRef={heroContainerRef as React.RefObject<HTMLDivElement>}
-              />
-
-              {/* Space text - elegant positioning */}
-              <TextCursorProximity
-                label="Space"
-                className="hero-company-name block text-[8vw] md:text-[6vw] lg:text-[5vw] xl:text-[4.5vw] 2xl:text-[4vw] font-bold tracking-[0.3em] will-change-transform cursor-default -mt-1 md:-mt-2"
-                styles={{
-                  transform: {
-                    from: "scale(1)",
-                    to: "scale(1.08)",
-                  },
-                  color: {
-                    from: "#a3a3a3",
-                    to: "#ffffff"
-                  },
-                  textShadow: {
-                    from: "0 2px 10px rgba(0,0,0,0.3)",
-                    to: "0 0 40px rgba(255,255,255,0.3), 0 0 80px rgba(255,255,255,0.15)"
-                  }
-                }}
-                falloff="gaussian"
-                radius={100}
-                containerRef={heroContainerRef as React.RefObject<HTMLDivElement>}
-              />
+            {/* Simple text for stability */}
+            <div className="text-white text-[16vw] md:text-[12vw] lg:text-[9vw] xl:text-[8vw] font-black uppercase tracking-tight leading-[0.85]">
+              Codex
             </div>
+            <div className="text-white/70 text-[7vw] md:text-[5vw] lg:text-[4vw] font-bold tracking-[0.3em] uppercase -mt-1 md:-mt-2">
+              Space
+            </div>
+
 
             {/* Decorative accent line - white */}
             <motion.div
@@ -126,7 +87,7 @@ export const Hero = () => {
             initial={{ y: 50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8, delay: 1.6 }}
-            className="text-xl md:text-3xl lg:text-4xl xl:text-5xl font-light leading-tight mb-6 max-w-2xl"
+            className="text-xl md:text-2xl lg:text-3xl xl:text-4xl font-light leading-snug mb-6 max-w-2xl"
           >
             <span className="font-medium text-white">Transform</span>{' '}
             <span className="text-white/70">Your Brand with</span>{' '}

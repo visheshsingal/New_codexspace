@@ -1,19 +1,31 @@
-import { motion } from 'framer-motion';
+import React from 'react';
 
-export const MenuButton = () => {
+interface MenuButtonProps {
+  scrolled: boolean;
+  onClick: () => void;
+}
+
+export const MenuButton = ({ scrolled, onClick }: MenuButtonProps) => {
+  const color = scrolled ? 'black' : 'white';
+
   return (
-    <motion.button
-      initial={{ opacity: 0, x: 20 }}
-      animate={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.6, delay: 0.2 }}
-      whileHover={{ scale: 1.05 }}
-      whileTap={{ scale: 0.95 }}
-      role="button"
-      className="bg-white text-black px-6 py-3 rounded-full font-medium hover:bg-gray-100 transition-colors duration-300 pointer-events-auto"
+    <button
+      onClick={onClick}
+      style={{
+        background: 'none',
+        border: 'none',
+        padding: '8px',
+        cursor: 'pointer',
+        position: 'relative',
+        zIndex: 50,
+      }}
+      aria-label="Toggle Menu"
     >
-      <div className="flex items-center gap-2">
-        <span>Menu</span>
+      <div style={{ width: '32px', height: '20px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', alignItems: 'flex-end', gap: '6px' }}>
+        <div style={{ width: '32px', height: '2px', backgroundColor: color, transition: 'all 0.3s' }} />
+        <div style={{ width: '24px', height: '2px', backgroundColor: color, transition: 'all 0.3s' }} />
+        <div style={{ width: '16px', height: '2px', backgroundColor: color, transition: 'all 0.3s' }} />
       </div>
-    </motion.button>
+    </button>
   );
 };
