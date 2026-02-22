@@ -21,6 +21,7 @@ app.use(express.json());
 // MongoDB Connection
 const connectDB = async () => {
     try {
+        console.log('Attempting to connect to:', process.env.MONGODB_URI ? process.env.MONGODB_URI.split('@')[1] : 'UNDEFINED');
         await mongoose.connect(process.env.MONGODB_URI, {
             serverSelectionTimeoutMS: 5000, // Timeout after 5 seconds
         });
