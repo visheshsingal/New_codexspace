@@ -10,7 +10,7 @@ export const Logo = ({ scrolled }: LogoProps) => {
       <a href="#" className="flex items-center no-underline">
         <span className={`font-bold text-2xl tracking-tight transition-colors duration-300 ${scrolled ? 'text-black' : 'text-white'
           }`}>
-          CodeXSpace<span style={{ color: '#ef4444' }}>.</span>
+          CodeXSpace<span className={scrolled ? 'text-black' : 'text-white'}>.</span>
         </span>
       </a>
     </div>

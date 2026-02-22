@@ -49,7 +49,7 @@ export const SectionContent = () => {
               />
             </div>
             <div className="text-[22.6946px] box-border caret-transparent tracking-[-0.907782px] leading-[22.6946px] md:text-[51.5946px] md:tracking-[-2.06379px] md:leading-[51.5946px]">
-              8+
+              3+
             </div>
           </div>
           <div className="text-[15.1297px] box-border caret-transparent tracking-[-0.302594px] leading-[21.1816px] md:text-[15.2873px] md:tracking-[-0.305746px] md:leading-[21.4022px]">
@@ -66,7 +66,7 @@ export const SectionContent = () => {
               />
             </div>
             <div className="text-[22.6946px] box-border caret-transparent tracking-[-0.907782px] leading-[22.6946px] md:text-[51.5946px] md:tracking-[-2.06379px] md:leading-[51.5946px]">
-              150+
+              15+
             </div>
           </div>
           <div className="text-[15.1297px] box-border caret-transparent tracking-[-0.302594px] leading-[21.1816px] md:text-[15.2873px] md:tracking-[-0.305746px] md:leading-[21.4022px]">
@@ -83,7 +83,7 @@ export const SectionContent = () => {
               />
             </div>
             <div className="text-[22.6946px] box-border caret-transparent tracking-[-0.907782px] leading-[22.6946px] md:text-[51.5946px] md:tracking-[-2.06379px] md:leading-[51.5946px]">
-              300+
+              20+
             </div>
           </div>
           <div className="text-[15.1297px] box-border caret-transparent tracking-[-0.302594px] leading-[21.1816px] md:text-[15.2873px] md:tracking-[-0.305746px] md:leading-[21.4022px]">

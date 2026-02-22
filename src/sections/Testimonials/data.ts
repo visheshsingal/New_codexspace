@@ -12,30 +12,30 @@ export interface Testimonial {
 export const testimonials: Testimonial[] = [
     {
         id: 1,
-        text: "We are extremely pleased with the website design and functionality delivered by the team. It's user-friendly, professional, and perfectly showcases our services. The entire process was efficient and stress-free.",
-        name: "Mohit Bazzad",
+        text: "Collaborating with CodeXSpace has been an absolute pleasure. Their attention to detail, timely delivery, and strategic mindset helped us strengthen our digital presence significantly.",
+        name: "Shreya Garg",
         role: "Founder",
-        company: "Kings Pet Hospital",
+        company: "Co-Founder, GrabanIdea",
         color: "bg-emerald-200",
         textColor: "text-emerald-900",
         icon: "https://c.animaapp.com/mk1krdvf8IZhRk/assets/icon-19.svg"
     },
     {
         id: 2,
-        text: "The team delivered exactly what we needed — a clean, professional, and easy-to-manage website. The entire process was smooth, timely, and well-communicated. We're very satisfied with both the quality and support.",
-        name: "Abhishek Parashar",
-        role: "Founder",
-        company: "Trainingandplacementcell",
+        text: "CodeXSpace has shown exceptional professionalism, technical expertise, and commitment to delivering quality digital solutions.",
+        name: "Tilak Raj Jain",
+        role: "Director, Vishesh Academy",
+        company: "Director, Vishesh Academy",
         color: "bg-pink-300",
         textColor: "text-fuchsia-900",
         icon: "https://c.animaapp.com/mk1krdvf8IZhRk/assets/icon-18.svg"
     },
     {
         id: 3,
-        text: "I've worked with this team for many years, and they never fail to deliver… they jump head first into all challenges and over-deliver every time. What I especially like about them is that they often enhance the creative, as well as being solutions orientated…",
-        name: "Aman Sharma",
+        text: "CodeXSpace stands out for its innovation-driven approach and strong technical foundation. Their ability to execute complex digital projects with precision and creativity makes them a reliable partner for any organization looking to scale digitally.",
+        name: "Antonis Sypropoulos",
         role: "CEO",
-        company: "Hi Tech Luxury Homes",
+        company: "Founder, CodeSoftLabs",
         color: "bg-slate-900",
         textColor: "text-blue-300",
         icon: "https://c.animaapp.com/mk1krdvf8IZhRk/assets/icon-20.svg"

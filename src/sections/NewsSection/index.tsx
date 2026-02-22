@@ -4,42 +4,27 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const services = [
+const newsItems = [
   {
-    title: "Web & App Development",
-    description: "Custom websites and mobile apps that drive conversions and user engagement.",
-    icon: "01",
-    color: "bg-[#E0F7FA] text-cyan-900" // Light Cyan
+    title: "The Future of Web Design in 2025",
+    description: "Exploring the shift towards immersive 3D experiences and minimalist AI-driven interfaces.",
+    date: "Feb 15, 2025",
+    category: "Design",
+    color: "bg-[#E0F7FA] text-cyan-900"
   },
   {
-    title: "SEO & Content Marketing",
-    description: "Data-driven SEO strategies and compelling content that ranks and converts.",
-    icon: "02",
-    color: "bg-[#F3E5F5] text-purple-900" // Light Purple
+    title: "AI Integration in Marketing",
+    description: "How machine learning is revolutionizing lead generation and personalized customer journeys.",
+    date: "Feb 10, 2025",
+    category: "Technology",
+    color: "bg-[#F3E5F5] text-purple-900"
   },
   {
-    title: "Social Media Marketing",
-    description: "Strategic SMM campaigns that build brand awareness and drive engagement.",
-    icon: "03",
-    color: "bg-[#FFF3E0] text-orange-900" // Light Orange
-  },
-  {
-    title: "AI Solutions",
-    description: "Cutting-edge AI integration for automation and intelligent decision-making.",
-    icon: "04",
-    color: "bg-[#E8F5E9] text-green-900" // Light Green
-  },
-  {
-    title: "Podcast Production",
-    description: "Professional podcast creation and distribution to amplify your brand voice.",
-    icon: "05",
-    color: "bg-[#FFEBEE] text-red-900" // Light Red
-  },
-  {
-    title: "Financial Consulting",
-    description: "Strategic financial planning and investment guidance for business growth.",
-    icon: "06",
-    color: "bg-[#E1F5FE] text-sky-900" // Light Sky Blue
+    title: "The Art of Strategic Branding",
+    description: "Building deep emotional connections with your audience through purposeful brand storytelling.",
+    date: "Feb 05, 2025",
+    category: "Branding",
+    color: "bg-[#FFF3E0] text-orange-900"
   }
 ];
 
@@ -50,7 +35,7 @@ export const NewsSection = () => {
   useEffect(() => {
     if (!sectionRef.current || !cardsRef.current) return;
 
-    const cards = cardsRef.current.querySelectorAll('.service-card');
+    const cards = cardsRef.current.querySelectorAll('.news-card');
 
     // Animate cards on scroll
     cards.forEach((card, index) => {
@@ -83,7 +68,7 @@ export const NewsSection = () => {
     <section
       ref={sectionRef}
       className="relative text-black bg-stone-50 overflow-hidden pt-12 pb-24 md:pb-32"
-      id="services-section"
+      id="news"
     >
       <div className="relative z-10 px-4 md:px-8 lg:px-16">
         <div className="max-w-7xl mx-auto">
@@ -93,15 +78,15 @@ export const NewsSection = () => {
             <div className="max-w-2xl">
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-1.5 h-1.5 bg-black rounded-full" />
-                <span className="text-xs uppercase tracking-[0.2em] font-bold text-black/60">Services</span>
+                <span className="text-xs uppercase tracking-[0.2em] font-bold text-black/60">Insights</span>
               </div>
               <h2 className="text-4xl md:text-6xl font-normal tracking-tight text-neutral-900 leading-tight">
-                Our suite of <span className="font-semibold">digital services</span> to help your business grow.
+                Latest from our <span className="font-semibold">studio & industry</span> perspective.
               </h2>
             </div>
             <div className="md:pb-2">
               <p className="text-lg text-neutral-500 max-w-sm leading-relaxed">
-                We combine strategy, design, and technology to deliver results that matter.
+                Stay updated with the latest trends, news, and deep dives from our creative team.
               </p>
             </div>
           </div>
@@ -111,23 +96,27 @@ export const NewsSection = () => {
             ref={cardsRef}
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
           >
-            {services.map((service, index) => (
+            {newsItems.map((item, index) => (
               <div
                 key={index}
-                className={`service-card group relative rounded-3xl p-10 border border-transparent hover:border-black/5 hover:shadow-lg transition-all duration-500 ${service.color}`}
+                className={`news-card group relative rounded-3xl p-10 border border-transparent hover:border-black/5 hover:shadow-xl transition-all duration-500 ${item.color}`}
               >
-                {/* Number & Title */}
-                <div className="mb-8">
-                  <div className="text-sm font-bold opacity-40 mb-4 group-hover:opacity-100 transition-opacity duration-500">
-                    {service.icon}
+                {/* Category & Date */}
+                <div className="mb-8 flex justify-between items-center">
+                  <div className="text-xs font-bold uppercase tracking-widest opacity-60">
+                    {item.category}
                   </div>
-                  <h3 className="text-2xl font-semibold tracking-tight">
-                    {service.title}
-                  </h3>
+                  <div className="text-xs opacity-40">
+                    {item.date}
+                  </div>
                 </div>
 
+                <h3 className="text-2xl font-semibold tracking-tight mb-6">
+                  {item.title}
+                </h3>
+
                 <p className="opacity-70 leading-relaxed mb-10 group-hover:opacity-100 transition-opacity duration-500">
-                  {service.description}
+                  {item.description}
                 </p>
 
                 {/* Refined Link */}
@@ -136,14 +125,14 @@ export const NewsSection = () => {
                     href="#"
                     className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider group-hover:gap-4 transition-all duration-300"
                   >
-                    <span>Read More</span>
+                    <span>Read Article</span>
                     <svg
                       className="w-4 h-4 transform group-hover:translate-x-1 transition-transform"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
                     >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                      <path d="M17 8l4 4m0 0l-4 4m4-4H3" strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} />
                     </svg>
                   </a>
                 </div>
@@ -154,22 +143,23 @@ export const NewsSection = () => {
           {/* Simple Professional CTA */}
           <div className="mt-20 flex flex-col items-center text-center">
             <div className="h-px w-20 bg-black/10 mb-12" />
-            <h3 className="text-2xl md:text-3xl font-medium mb-8">Ready to start your next project?</h3>
+            <h3 className="text-2xl md:text-3xl font-medium mb-8">Want to learn more about our work?</h3>
             <div className="flex gap-4">
               <a
-                href="#contact"
+                href="#projects"
                 className="px-10 py-4 bg-black text-white rounded-full hover:bg-neutral-800 transition-all duration-300 shadow-lg shadow-black/5"
               >
-                Get in touch
+                View Case Studies
               </a>
               <a
-                href="#"
+                href="#contact"
                 className="px-10 py-4 border border-black/10 rounded-full hover:border-black transition-all duration-300"
               >
-                Learn about us
+                Contact Us
               </a>
             </div>
           </div>
+
 
         </div>
       </div>

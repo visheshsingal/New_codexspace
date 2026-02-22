@@ -28,8 +28,7 @@ export const MobileMenuNav = ({ onClose }: MobileMenuNavProps) => {
       </ul>
 
       <div className="text-white/50 text-sm md:text-base max-w-sm space-y-4">
-        <p>Tower B, 3rd Floor, Unitech Cyber Park, Sector 39, Gurugram, Haryana 122002</p>
-        <p>kp@CodeXSpace.in</p>
+        <p>CodeXSpacemain@gmail.com</p>
       </div>
     </div>
   );

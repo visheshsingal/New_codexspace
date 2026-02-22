@@ -16,18 +16,18 @@ export const Footer = () => {
           <div className="flex-shrink-0">
             <FooterContent />
           </div>
-          
+
           <div className="flex-grow flex justify-start lg:justify-end">
-             <FooterNav />
+            <FooterNav />
           </div>
         </div>
 
         {/* Bottom Section: Copyright */}
-        <div className="mt-12 pt-6 border-t border-neutral-900 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-neutral-500">
+        <div className="mt-12 pt-6 border-t border-neutral-900 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 text-xs text-neutral-500">
           <p>© 2025 CodeXSpace. All rights reserved.</p>
           <div className="flex gap-6">
-             <a href="#" className="hover:text-neutral-300 transition-colors">Privacy Policy</a>
-             <a href="#" className="hover:text-neutral-300 transition-colors">Terms of Service</a>
+            <a href="#" className="hover:text-neutral-300 transition-colors">Privacy Policy</a>
+            <a href="#" className="hover:text-neutral-300 transition-colors">Terms of Service</a>
           </div>
         </div>
       </div>

@@ -23,7 +23,6 @@ export const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
     { name: 'Services', href: '#what-we-do' },
     { name: 'Work', href: '#projects' },
     { name: 'Testimonials', href: '#testimonials' },
-    { name: 'News', href: '#news' },
     { name: 'Contact', href: '#contact' },
   ];
 
@@ -82,7 +81,7 @@ export const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
       </nav>
 
       <div style={{ marginTop: '80px', color: 'rgba(255,255,255,0.5)', fontSize: '14px' }}>
-        <p>kp@CodeXSpace.in</p>
+        <p>codexspacemain@gmail.com</p>
       </div>
     </div>
   );

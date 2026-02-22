@@ -1,170 +1,125 @@
-import { useEffect, useRef, useState } from 'react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { motion } from 'framer-motion';
 
-gsap.registerPlugin(ScrollTrigger);
-
-// --- Project Data ---
 const projects = [
   {
-    number: "Project 01",
+    number: "01",
     title: "Indus group of Institution",
-    imageUrl: "https://images.unsplash.com/photo-1562774053-701939374585?w=800&h=800&fit=crop",
+    imageUrl: "https://images.pexels.com/photos/5428003/pexels-photo-5428003.jpeg",
     tags: ["Education", "Campus", "Innovation"],
-    description: "A state-of-the-art educational facility fostering innovation and learning excellence through modern infrastructure."
+    description: "A state-of-the-art educational facility fostering innovation and learning excellence.",
+    color: "bg-white/5 text-white"
   },
   {
-    number: "Project 02",
-    title: "Policicue",
-    imageUrl: "https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&h=800&fit=crop",
-    tags: ["Technology", "Global", "Strategy", "Future"],
-    description: "Revolutionizing policy and strategy through advanced technological solutions and data-driven insights."
+    number: "02",
+    title: "Hitech Homes",
+    imageUrl: "https://images.pexels.com/photos/279719/pexels-photo-279719.jpeg",
+    tags: ["Real Estate", "Luxury", "Modern"],
+    description: "Redefining modern living with smart architecture and premium real estate solutions.",
+    color: "bg-white/5 text-white"
   },
   {
-    number: "Project 03",
+    number: "03",
+    title: "Vishesh Academy",
+    imageUrl: "https://images.pexels.com/photos/1205651/pexels-photo-1205651.jpeg",
+    tags: ["Education", "Commerce", "Success"],
+    description: "Empowering students with professional coaching and strategic learning modules.",
+    color: "bg-white/5 text-white"
+  },
+  {
+    number: "04",
     title: "Frd Nutrition",
-    imageUrl: "https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=800&h=800&fit=crop",
-    tags: ["Health", "Nutrition", "Organic", "Wellness"],
-    description: "Premium organic nutrition solutions designed for a healthier and more balanced lifestyle."
+    imageUrl: "https://images.pexels.com/photos/17227607/pexels-photo-17227607.jpeg",
+    tags: ["Health", "Nutrition", "Organic"],
+    description: "Premium organic nutrition solutions designed for a balanced lifestyle.",
+    color: "bg-white/5 text-white"
   }
 ];
 
-// --- Main Component ---
-
 export const ProjectsCarousel = () => {
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [currentProject, setCurrentProject] = useState(1);
-
-  useEffect(() => {
-    if (!sectionRef.current || !containerRef.current) return;
-
-    const section = sectionRef.current;
-    const container = containerRef.current;
-    const projectPanels = gsap.utils.toArray<HTMLElement>('.project-panel');
-
-    // Calculate the total width to scroll
-    const totalWidth = (projectPanels.length - 1) * window.innerWidth;
-
-    // Create the horizontal scroll animation
-    const scrollTween = gsap.to(projectPanels, {
-      xPercent: -100 * (projectPanels.length - 1),
-      ease: 'none',
-      scrollTrigger: {
-        trigger: section,
-        pin: true,
-        scrub: 1,
-        snap: {
-          snapTo: 1 / (projectPanels.length - 1),
-          duration: { min: 0.2, max: 0.5 },
-          ease: 'power1.inOut'
-        },
-        end: () => `+=${totalWidth}`,
-        onUpdate: (self) => {
-          const progress = self.progress;
-          const projectIndex = Math.round(progress * (projectPanels.length - 1)) + 1;
-          setCurrentProject(projectIndex);
-        }
-      },
-    });
-
-    // Handle resize
-    const handleResize = () => {
-      ScrollTrigger.refresh();
-    };
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-      scrollTween.scrollTrigger?.kill();
-    };
-  }, []);
-
   return (
-    <section
-      ref={sectionRef}
-      className="relative bg-black text-white h-screen overflow-hidden"
-    >
-      <div
-        ref={containerRef}
-        className="flex h-full w-full"
-      >
-        {projects.map((project, index) => (
-          <div
-            key={index}
-            className="project-panel flex-shrink-0 w-screen h-full flex items-center justify-center px-8 md:px-16 lg:px-24"
+    <section className="py-20 md:py-32 bg-black text-white font-switzer" id="work">
+      <div className="max-w-7xl mx-auto px-6 md:px-12">
+        {/* Simple & Clean Header - Matching Site Style */}
+        <div className="mb-16 md:mb-24">
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="flex items-center gap-3 mb-6"
           >
-            <div className="grid grid-cols-12 gap-6 w-full max-w-[1400px] items-center">
-              {/* Left Column - Title */}
-              <div className="col-span-12 md:col-span-4 z-10 mix-blend-difference">
-                <div className="flex flex-col gap-4">
-                  <span className="text-sm uppercase tracking-wider opacity-80">
+            <div className="w-2 h-2 bg-white"></div>
+            <span className="text-sm md:text-base font-medium uppercase tracking-widest text-white/50">Our Portfolio</span>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="flex flex-col gap-2 md:gap-4"
+          >
+            <h2 className="text-4xl md:text-6xl font-normal tracking-tight">
+              Selected <span className="text-white/40 italic font-medium">Works.</span>
+            </h2>
+            <p className="text-[10px] md:text-xs text-white/30 uppercase tracking-[0.4em] font-medium">
+              founder contributions highlighted below
+            </p>
+          </motion.div>
+        </div>
+
+        {/* Clean & Balanced Project Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
+          {projects.map((project, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: index % 2 * 0.1 }}
+              className="group flex flex-col cursor-pointer"
+            >
+              {/* Image - Sharp Corners, Full Width */}
+              <div className="relative aspect-video overflow-hidden border border-white/10 mb-6">
+                <img
+                  src={project.imageUrl}
+                  alt={project.title}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+              </div>
+
+              {/* Info contained in a sharp-edged box */}
+              <div className={`p-8 md:p-10 border border-white/10 bg-white/[0.03] hover:bg-white/[0.08] transition-all duration-500 space-y-5`}>
+                <div className="flex items-baseline justify-between gap-4">
+                  <h3 className="text-2xl md:text-3xl font-semibold tracking-tight text-white">
+                    {project.title}
+                  </h3>
+                  <span className="text-xs md:text-sm font-bold text-white/10 font-mono italic">
                     {project.number}
                   </span>
-                  <h2 className="text-4xl md:text-6xl lg:text-7xl font-light leading-tight">
-                    {project.title}
-                  </h2>
                 </div>
-              </div>
 
-              {/* Center Column - Image */}
-              <div className="col-span-12 md:col-span-4 relative">
-                <div className="aspect-square w-full max-w-[500px] mx-auto overflow-hidden">
-                  <img
-                    src={project.imageUrl}
-                    alt={project.title}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              </div>
+                <p className="text-sm md:text-lg text-white/40 font-light leading-relaxed">
+                  {project.description}
+                </p>
 
-              {/* Right Column - Tags & Description */}
-              <div className="col-span-12 md:col-span-4 flex flex-col gap-6 justify-end">
-                <div className="flex flex-col gap-3">
-                  {project.tags.map((tag, tagIndex) => (
-                    <span
-                      key={tagIndex}
-                      className="text-sm uppercase tracking-wider underline underline-offset-4"
-                    >
+                <div className="flex flex-wrap gap-2 pt-2">
+                  {project.tags.map((tag, i) => (
+                    <span key={i} className="text-[10px] md:text-xs uppercase tracking-widest font-medium px-4 py-2 border border-white/10 bg-white/5 text-white/40">
                       {tag}
                     </span>
                   ))}
                 </div>
-                <p className="text-base md:text-lg opacity-80 max-w-[350px]">
-                  {project.description}
-                </p>
+
+                <div className="pt-6 flex items-center gap-2 text-xs md:text-sm font-semibold uppercase tracking-[0.3em] text-white hover:text-white/60 group-hover:gap-4 transition-all">
+                  Explore Project
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </div>
               </div>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      {/* Bottom Controls */}
-      <div className="absolute bottom-8 left-0 right-0 px-8 md:px-16 lg:px-24">
-        <div className="flex justify-between items-center max-w-[1400px] mx-auto">
-          {/* Progress Indicator */}
-          <div className="flex items-center gap-2">
-            <span className="text-sm">[ </span>
-            <span className="text-sm font-medium">{currentProject}</span>
-            <span className="text-sm opacity-50"> / {projects.length}</span>
-            <span className="text-sm"> ]</span>
-          </div>
-
-          {/* Progress Bar */}
-          <div className="hidden md:block flex-1 mx-8 h-[1px] bg-neutral-700 relative">
-            <div
-              className="absolute top-0 left-0 h-full bg-white transition-all duration-300"
-              style={{ width: `${(currentProject / projects.length) * 100}%` }}
-            />
-          </div>
-
-          {/* View All Link */}
-          <a href="#" className="flex items-center gap-2 text-sm uppercase tracking-wider hover:opacity-70 transition-opacity">
-            View all projects
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" strokeWidth="1.5" />
-            </svg>
-          </a>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
